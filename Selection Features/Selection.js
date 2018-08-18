@@ -1,13 +1,3 @@
-// ==UserScript==
-// @name         Selection
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @match        *://*/*
-// @grant        none
-// ==/UserScript==
-
 // insert key press event listener
 function addEventListener() {
     document.addEventListener("keypress", function(event) {
@@ -19,19 +9,19 @@ function addEventListener() {
 // If any of the below keys is pressed, it will be inserted before and after the word
 // To add more keys just list them below in format "<keyCode>: a => `<key>${a}<key>`," (make sure you escape special symbols)
 var keys = {
-    42: a => `*${a}*`,
-    40: a => `(${a})`,
-    123: a => `{${a}}`,
-    91: a => `[${a}]`,
-    39: a => `'${a}'`,
-    34: a => `"${a}"`,
-    96: a => `\`${a}\``,
+    42: key => `*${key}*`,
+    40: key => `(${key})`,
+    123: key => `{${key}}`,
+    91: key => `[${key}]`,
+    39: key => `'${key}'`,
+    34: key => `"${key}"`,
+    96: key => `\`${key}\``,
 };
 
 // Main Logic
 
 // Returns the html element in which the selected text is
-function getParent() {
+function getActive() {
     return document.activeElement;
 }
 
@@ -65,7 +55,7 @@ function eventHandler(event) {
     // check if any text is selected
     // if there is no selection then the key should NOT be inserted and the event is ignored
     if (window.getSelection().toString().length > 0) {
-        let element = getParent();
+        let element = getActive();
         let elementTagName = element.tagName.toLowerCase();
 
         // check if the text inside the html element could be modifyed
