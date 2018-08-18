@@ -5,4 +5,4 @@
 The idea of this script is to copy the _Visual Studio Code_ feature that allows you to select a **word** or **sentence** and click **Apostrophe** or **Asterisk** or whatever **other symbol** you need/want and place it **around** the **highlighted text**. This script works specifically with "_**textarea**_".
 
 
-**The script is designed to be used with ``Tampermonkey`` any extension that allows user javascript to be executed.**
+**The script is designed to be used with <s>Tampermonkey</s> any extension that allows user javascript to be executed.**
